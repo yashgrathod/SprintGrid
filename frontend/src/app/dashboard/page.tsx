@@ -198,10 +198,10 @@ export default function DashboardPage() {
               <div 
                 key={project.id} 
                 onClick={() => router.push(`/projects/${project.id}`)}
-                className="bg-background border border-border p-5 rounded-lg shadow-sm hover:shadow-md hover:border-mutedForeground/30 transition-all cursor-pointer group flex flex-col h-40"
+                className="bg-background border border-border p-5 rounded-lg shadow-sm hover:shadow-md hover:border-mutedForeground/30 transition-all cursor-pointer group flex flex-col min-h-[160px]"
               >
                 <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
-                <p className="text-sm text-mutedForeground line-clamp-2 mb-4 flex-1">{project.description || 'No description provided'}</p>
+                <p className="text-sm text-mutedForeground line-clamp-2 mt-1">{project.description || 'No description provided'}</p>
                 
                 <div className="flex items-center text-xs text-mutedForeground mt-auto border-t border-border/50 pt-3">
                   <span className="flex items-center">
