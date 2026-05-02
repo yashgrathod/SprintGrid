@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: yash
+      POSTGRES_PASSWORD: smartgrid123
+      POSTGRES_DB: scrum_workspace
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data_new:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_new:

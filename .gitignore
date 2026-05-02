@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (CRITICAL)
+.env
+.env.*
+
+# Next.js Build Output
+.next/
+
+# User Uploads
+uploads/
+
+# OS Files
+.DS_Store

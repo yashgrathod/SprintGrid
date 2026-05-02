@@ -1,0 +1,14 @@
+# --- SprintGrid Custom Backend ---
+
+# Ignore the main environment variables (which hold your database URL & JWT secret)
+.env
+
+# Ignore the Prisma local SQLite database (if you are using SQLite instead of Postgres)
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Ignore the local user file uploads (attachments)
+/backend/uploads/
+/uploads/
