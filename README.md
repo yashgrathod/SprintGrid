@@ -4,7 +4,7 @@ SprintGrid is a robust, real-time Agile project management tool designed to stre
 
 ## Key Features
 
-* **Real-Time Kanban Board:** Drag-and-drop tasks across statuses with instant WebSocket synchronization across all connected clients.
+* **Real-Time Scrum Board:** Drag-and-drop tasks across statuses with instant WebSocket synchronization across all connected clients.
 * **Fluid UI Layout:** A responsive, auto-scaling board design that eliminates horizontal scrolling and adapts perfectly to your workspace.
 * **Interactive Timeline View:** Visualize project schedules with drag-to-resize task durations and deadline tracking.
 * **Advanced Task Management:** Support for task priorities, blockers, deadlines, and file attachments.
