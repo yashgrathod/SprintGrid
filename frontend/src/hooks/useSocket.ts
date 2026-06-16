@@ -20,17 +20,15 @@ if (!globalAny.currentSocketRoom) {
 }
 
 export const useSocket = (projectId: string) => {
-  const leaveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
   useEffect(() => {
     if (!projectId) return;
 
     const socket = globalAny.socketInstance;
 
     // Cancel any pending leave for this same room (covers Strict Mode double-mount)
-    if (leaveTimerRef.current) {
-      clearTimeout(leaveTimerRef.current);
-      leaveTimerRef.current = null;
+    if (globalAny.leaveTimer) {
+      clearTimeout(globalAny.leaveTimer);
+      globalAny.leaveTimer = null;
     }
 
     // Ensure the socket is connected
@@ -46,7 +44,7 @@ export const useSocket = (projectId: string) => {
 
     // Cleanup: debounce the leave by 1 second
     return () => {
-      leaveTimerRef.current = setTimeout(() => {
+      globalAny.leaveTimer = setTimeout(() => {
         if (globalAny.socketInstance && globalAny.currentSocketRoom === projectId) {
           globalAny.socketInstance.emit('leave-project', projectId);
           globalAny.currentSocketRoom = null;

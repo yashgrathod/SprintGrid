@@ -120,6 +120,12 @@ export default function ProjectPage() {
     const onTaskCreated = (task: any) => {
       setTasks(prev => [...prev, task]);
     };
+    const onTaskUpdated = (task: any) => {
+      setTasks(prev => prev.map(t => t.id === task.id ? task : t));
+    };
+    const onTaskDeleted = (taskId: string) => {
+      setTasks(prev => prev.filter(t => t.id !== taskId));
+    };
     const onTaskMoved = ({ taskId, newStatus, newPosition }: any) => {
       setTasks(prev => prev.map(t => t.id === taskId ? { ...t, status: newStatus, position: newPosition } : t));
     };
@@ -128,11 +134,15 @@ export default function ProjectPage() {
     };
 
     socket.on('task-created', onTaskCreated);
+    socket.on('task-updated', onTaskUpdated);
+    socket.on('task-deleted', onTaskDeleted);
     socket.on('task-moved', onTaskMoved);
     socket.on('activity-logged', onActivityLogged);
 
     return () => {
       socket.off('task-created', onTaskCreated);
+      socket.off('task-updated', onTaskUpdated);
+      socket.off('task-deleted', onTaskDeleted);
       socket.off('task-moved', onTaskMoved);
       socket.off('activity-logged', onActivityLogged);
     };
